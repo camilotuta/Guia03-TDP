@@ -1,0 +1,167 @@
+-- CREATE TABLE libros (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     titulo TEXT NOT NULL,
+--     autor TEXT NOT NULL,
+--     genero TEXT,
+--     editorial TEXT,
+--     ano_publicacion INTEGER,
+--     numero_paginas INTEGER,
+--     idioma TEXT,
+--     formato TEXT,
+--     estado TEXT,
+--     fecha_adquisicion DATE,
+--     precio_adquisicion REAL,
+--     sinopsis TEXT,
+--     numero_copias INTEGER DEFAULT 1
+-- );
+-- CREATE TABLE clientes (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     nombre TEXT NOT NULL,
+--     direccion TEXT,
+--     telefono TEXT,
+--     email TEXT UNIQUE,
+--     fecha_registro DATE DEFAULT (DATE('now'))
+-- );
+-- CREATE TABLE prestamos (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     id_libro INTEGER NOT NULL,
+--     id_cliente INTEGER NOT NULL,
+--     fecha_prestamo DATE DEFAULT (DATE('now')),
+--     fecha_devolucion DATE,
+--     estado TEXT DEFAULT 'Pendiente',
+--     FOREIGN KEY (id_libro) REFERENCES libros(id),
+--     FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+-- );
+-- INSERT INTO libros (
+--         titulo,
+--         autor,
+--         genero,
+--         editorial,
+--         ano_publicacion,
+--         numero_paginas,
+--         idioma,
+--         formato,
+--         estado,
+--         fecha_adquisicion,
+--         precio_adquisicion,
+--         sinopsis,
+--         numero_copias
+--     )
+-- VALUES (
+--         'Cien Años de Soledad',
+--         'Gabriel García Márquez',
+--         'Realismo Mágico',
+--         'Editorial Sudamericana',
+--         1967,
+--         417,
+--         'Español',
+--         'Tapa dura',
+--         'Nuevo',
+--         '2024-01-15',
+--         24.99,
+--         'La historia de la familia Buendía en el mítico pueblo de Macondo.',
+--         3
+--     ),
+--     (
+--         '1984',
+--         'George Orwell',
+--         'Distopía',
+--         'Secker & Warburg',
+--         1949,
+--         328,
+--         'Inglés',
+--         'Tapa blanda',
+--         'Usado',
+--         '2023-07-21',
+--         14.50,
+--         'Una novela distópica sobre un régimen totalitario que controla todos los aspectos de la vida.',
+--         5
+--     ),
+--     (
+--         'Don Quijote de la Mancha',
+--         'Miguel de Cervantes',
+--         'Clásico',
+--         'Francisco de Robles',
+--         1605,
+--         863,
+--         'Español',
+--         'Tapa dura',
+--         'Nuevo',
+--         '2024-03-10',
+--         34.99,
+--         'Las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza.',
+--         2
+--     ),
+--     (
+--         'To Kill a Mockingbird',
+--         'Harper Lee',
+--         'Drama',
+--         'J.B. Lippincott & Co.',
+--         1960,
+--         281,
+--         'Inglés',
+--         'Tapa blanda',
+--         'Usado',
+--         '2024-05-05',
+--         9.99,
+--         'Una historia sobre la injusticia racial en el sur de Estados Unidos.',
+--         4
+--     ),
+--     (
+--         'La sombra del viento',
+--         'Carlos Ruiz Zafón',
+--         'Misterio',
+--         'Editorial Planeta',
+--         2001,
+--         576,
+--         'Español',
+--         'Tapa blanda',
+--         'Nuevo',
+--         '2024-08-18',
+--         18.75,
+--         'Un joven descubre un libro misterioso que cambiará su vida para siempre.',
+--         3
+--     );
+-- INSERT INTO clientes (nombre, direccion, telefono, email)
+-- VALUES (
+--         'María González',
+--         'Calle Falsa 123, Madrid',
+--         '+34 600 123 456',
+--         'maria.gonzalez@example.com'
+--     ),
+--     (
+--         'Juan Pérez',
+--         'Avenida Siempreviva 742, Barcelona',
+--         '+34 600 654 321',
+--         'juan.perez@example.com'
+--     ),
+--     (
+--         'Ana Martínez',
+--         'Calle Gran Vía 100, Sevilla',
+--         '+34 600 987 654',
+--         'ana.martinez@example.com'
+--     ),
+--     (
+--         'Luis Fernández',
+--         'Calle Mayor 25, Valencia',
+--         '+34 600 333 222',
+--         'luis.fernandez@example.com'
+--     ),
+--     (
+--         'Elena Rodríguez',
+--         'Paseo de la Castellana 200, Madrid',
+--         '+34 600 555 777',
+--         'elena.rodriguez@example.com'
+--     );
+-- INSERT INTO prestamos (
+--         id_libro,
+--         id_cliente,
+--         fecha_prestamo,
+--         fecha_devolucion,
+--         estado
+--     )
+-- VALUES (1, 1, '2024-08-01', '2024-08-15', 'Devuelto'),
+--     (2, 2, '2024-08-10', '2024-08-25', 'Devuelto'),
+--     (3, 3, '2024-08-15', '2024-08-30', 'Pendiente'),
+--     (4, 4, '2024-08-20', '2024-09-05', 'Pendiente'),
+--     (5, 5, '2024-08-25', NULL, 'Pendiente');
