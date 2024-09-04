@@ -44,6 +44,23 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JLabel" name="imgBack">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/resources/img/back.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgBackMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgBackMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgBackMouseExited"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JLabel" name="lbPrestamos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -89,31 +106,14 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="21">
-                <StringItem index="0" value="Narrativa"/>
-                <StringItem index="1" value="Poes&#xed;a"/>
-                <StringItem index="2" value="Drama"/>
-                <StringItem index="3" value="Ensayo"/>
-                <StringItem index="4" value="&#xc9;pica"/>
-                <StringItem index="5" value="L&#xed;rica"/>
-                <StringItem index="6" value="Cuento"/>
-                <StringItem index="7" value="Novela"/>
-                <StringItem index="8" value="F&#xe1;bula"/>
-                <StringItem index="9" value="Mito"/>
-                <StringItem index="10" value="Leyenda"/>
-                <StringItem index="11" value="Autobiograf&#xed;a"/>
-                <StringItem index="12" value="Biograf&#xed;a"/>
-                <StringItem index="13" value="Cr&#xf3;nica"/>
-                <StringItem index="14" value="Epopeya"/>
-                <StringItem index="15" value="S&#xe1;tira"/>
-                <StringItem index="16" value="Oratoria"/>
-                <StringItem index="17" value="Diario"/>
-                <StringItem index="18" value="Ep&#xed;stola"/>
-                <StringItem index="19" value="Tragedia"/>
-                <StringItem index="20" value="Otro"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Selecciona"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbClienteActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -151,31 +151,14 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="21">
-                <StringItem index="0" value="Narrativa"/>
-                <StringItem index="1" value="Poes&#xed;a"/>
-                <StringItem index="2" value="Drama"/>
-                <StringItem index="3" value="Ensayo"/>
-                <StringItem index="4" value="&#xc9;pica"/>
-                <StringItem index="5" value="L&#xed;rica"/>
-                <StringItem index="6" value="Cuento"/>
-                <StringItem index="7" value="Novela"/>
-                <StringItem index="8" value="F&#xe1;bula"/>
-                <StringItem index="9" value="Mito"/>
-                <StringItem index="10" value="Leyenda"/>
-                <StringItem index="11" value="Autobiograf&#xed;a"/>
-                <StringItem index="12" value="Biograf&#xed;a"/>
-                <StringItem index="13" value="Cr&#xf3;nica"/>
-                <StringItem index="14" value="Epopeya"/>
-                <StringItem index="15" value="S&#xe1;tira"/>
-                <StringItem index="16" value="Oratoria"/>
-                <StringItem index="17" value="Diario"/>
-                <StringItem index="18" value="Ep&#xed;stola"/>
-                <StringItem index="19" value="Tragedia"/>
-                <StringItem index="20" value="Otro"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Seleccionar"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbLibroActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -213,6 +196,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfFechaDevolucionKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="290" width="130" height="-1"/>
@@ -273,6 +259,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tTablaPrestamosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

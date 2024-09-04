@@ -64,8 +64,4 @@ public class OperacionCRUD extends Conexion {
         }
     }
 
-    public static void main(String[] args) throws SQLException {
-        System.out.println(seleccionar("select * from clientes",
-                new String[]{"nombre", "direccion", "telefono", "email"}));
-    }
 }
