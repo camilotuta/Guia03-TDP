@@ -1,9 +1,17 @@
-// cSpell:ignore alverata configuracion direccion telefono gestion
+// cSpell:ignore alverata configuracion direccion telefono gestion boton operacion
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package screens;
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+import java.sql.SQLException;
+import classes.OperacionCRUD;
+import screens.custom.CambiarIU;
+import screens.custom.ObtenerIU;
 
 /**
  *
@@ -28,11 +36,14 @@ public class ModificarCliente extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
 
                 jPanel1 = new javax.swing.JPanel();
                 lbBienvenido = new javax.swing.JLabel();
+                btnRegresar = new javax.swing.JButton();
+                btnModificarCliente = new javax.swing.JButton();
                 lbNombre = new javax.swing.JLabel();
                 tfNombre = new javax.swing.JTextField();
                 lbDireccion = new javax.swing.JLabel();
@@ -41,8 +52,6 @@ public class ModificarCliente extends javax.swing.JFrame {
                 tfTelefono = new javax.swing.JTextField();
                 lbEmail = new javax.swing.JLabel();
                 tfEmail = new javax.swing.JTextField();
-                btnRegresar = new javax.swing.JButton();
-                btnCrearCliente = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,46 +64,6 @@ public class ModificarCliente extends javax.swing.JFrame {
                 lbBienvenido.setText("MODIFICAR CLIENTE");
                 jPanel1.add(lbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 540, -1));
 
-                lbNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbNombre.setForeground(new java.awt.Color(2, 8, 38));
-                lbNombre.setText("NOMBRE:");
-                jPanel1.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 110, -1));
-
-                tfNombre.setBackground(new java.awt.Color(234, 221, 207));
-                tfNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfNombre.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 210, -1));
-
-                lbDireccion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbDireccion.setForeground(new java.awt.Color(2, 8, 38));
-                lbDireccion.setText("DIRECCIÓN:");
-                jPanel1.add(lbDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 110, -1));
-
-                tfDireccion.setBackground(new java.awt.Color(234, 221, 207));
-                tfDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfDireccion.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 210, -1));
-
-                lbTelefono.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbTelefono.setForeground(new java.awt.Color(2, 8, 38));
-                lbTelefono.setText("TELÉFONO:");
-                jPanel1.add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 110, -1));
-
-                tfTelefono.setBackground(new java.awt.Color(234, 221, 207));
-                tfTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfTelefono.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, -1));
-
-                lbEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbEmail.setForeground(new java.awt.Color(2, 8, 38));
-                lbEmail.setText("EMAIL:");
-                jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 110, -1));
-
-                tfEmail.setBackground(new java.awt.Color(234, 221, 207));
-                tfEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfEmail.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 210, -1));
-
                 btnRegresar.setBackground(new java.awt.Color(140, 120, 81));
                 btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
                 btnRegresar.setForeground(new java.awt.Color(255, 255, 254));
@@ -106,16 +75,76 @@ public class ModificarCliente extends javax.swing.JFrame {
                 });
                 jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
 
-                btnCrearCliente.setBackground(new java.awt.Color(140, 120, 81));
-                btnCrearCliente.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-                btnCrearCliente.setForeground(new java.awt.Color(255, 255, 254));
-                btnCrearCliente.setText("Crear Nuevo Cliente");
-                btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+                btnModificarCliente.setBackground(new java.awt.Color(140, 120, 81));
+                btnModificarCliente.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+                btnModificarCliente.setForeground(new java.awt.Color(255, 255, 254));
+                btnModificarCliente.setText("Modificar Cliente");
+                btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnCrearClienteActionPerformed(evt);
+                                btnModificarClienteActionPerformed(evt);
                         }
                 });
-                jPanel1.add(btnCrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+                jPanel1.add(btnModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+
+                lbNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbNombre.setForeground(new java.awt.Color(2, 8, 38));
+                lbNombre.setText("NOMBRE:");
+                jPanel1.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 110, -1));
+
+                tfNombre.setBackground(new java.awt.Color(234, 221, 207));
+                tfNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfNombre.setForeground(new java.awt.Color(2, 8, 38));
+                tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfNombreKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 210, -1));
+
+                lbDireccion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbDireccion.setForeground(new java.awt.Color(2, 8, 38));
+                lbDireccion.setText("DIRECCIÓN:");
+                jPanel1.add(lbDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, -1));
+
+                tfDireccion.setBackground(new java.awt.Color(234, 221, 207));
+                tfDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfDireccion.setForeground(new java.awt.Color(2, 8, 38));
+                tfDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfDireccionKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 210, -1));
+
+                lbTelefono.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbTelefono.setForeground(new java.awt.Color(2, 8, 38));
+                lbTelefono.setText("TELÉFONO:");
+                jPanel1.add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 110, -1));
+
+                tfTelefono.setBackground(new java.awt.Color(234, 221, 207));
+                tfTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfTelefono.setForeground(new java.awt.Color(2, 8, 38));
+                tfTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfTelefonoKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 210, -1));
+
+                lbEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbEmail.setForeground(new java.awt.Color(2, 8, 38));
+                lbEmail.setText("EMAIL:");
+                jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 110, -1));
+
+                tfEmail.setBackground(new java.awt.Color(234, 221, 207));
+                tfEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfEmail.setForeground(new java.awt.Color(2, 8, 38));
+                tfEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfEmailKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 210, -1));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -131,6 +160,25 @@ public class ModificarCliente extends javax.swing.JFrame {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
+        private void tfDireccionKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarCliente();
+
+        }
+
+        private void tfTelefonoKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarCliente();
+
+        }
+
+        private void tfEmailKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarCliente();
+
+        }
+
+        private void tfNombreKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarCliente();
+        }
+
         private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {
                 GestionClientes gc = new GestionClientes();
                 gc.setVisible(true);
@@ -138,7 +186,11 @@ public class ModificarCliente extends javax.swing.JFrame {
 
         }
 
-        private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {
+                modificarIdClienteSeleccionado();
+                GestionClientes gc = new GestionClientes();
+                gc.setVisible(true);
+                this.setVisible(false);
 
         }
 
@@ -146,6 +198,54 @@ public class ModificarCliente extends javax.swing.JFrame {
                 this.setTitle("Modificar Cliente");
                 this.setResizable(false);
                 this.setLocationRelativeTo(null);
+                llenarCampos();
+                desactivarBotonModificarCliente();
+        }
+
+        private void desactivarBotonModificarCliente() {
+                boolean camposValidos = ObtenerIU.obtenerLongitudTextoCampo(tfNombre) > 8
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfDireccion) > 8
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfTelefono) > 8
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfEmail) > 15
+                                && ObtenerIU.obtenerTextoCampo(tfEmail).contains("@");
+                btnModificarCliente.setEnabled(camposValidos);
+
+        }
+
+        private void modificarIdClienteSeleccionado() {
+                try {
+                        int idClienteModificar = GestionClientes.idClienteSeleccionado;
+                        String nombre = ObtenerIU.obtenerTextoCampo(tfNombre);
+                        String direccion = ObtenerIU.obtenerTextoCampo(tfDireccion);
+                        String telefono = ObtenerIU.obtenerTextoCampo(tfTelefono);
+                        String email = ObtenerIU.obtenerTextoCampo(tfEmail);
+                        OperacionCRUD.registrar(
+                                        String.format("UPDATE clientes SET nombre = '%s', direccion = '%s', telefono = '%s', email = '%s' WHERE id = %d",
+                                                        nombre, direccion, telefono, email, idClienteModificar));
+                        String nombreClienteRegistrado = String.format("EL CLIENTE %s HA SIDO MODIFICADO CON ÉXITO.",
+                                        ObtenerIU.obtenerTextoCampo(tfNombre).toUpperCase());
+                        JOptionPane.showMessageDialog(null, nombreClienteRegistrado);
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+        }
+
+        private void llenarCampos() {
+                int idClienteModificar = GestionClientes.idClienteSeleccionado;
+                ArrayList<ArrayList<Object>> datosCliente;
+                try {
+                        datosCliente = OperacionCRUD.seleccionar(
+                                        "select * from clientes where id= " + idClienteModificar,
+                                        new String[] { "nombre", "direccion", "telefono", "email",
+                                        });
+
+                        CambiarIU.ponerTextoCampo(tfNombre, String.valueOf(datosCliente.get(0).get(0)));
+                        CambiarIU.ponerTextoCampo(tfDireccion, String.valueOf(datosCliente.get(0).get(1)));
+                        CambiarIU.ponerTextoCampo(tfTelefono, String.valueOf(datosCliente.get(0).get(2)));
+                        CambiarIU.ponerTextoCampo(tfEmail, String.valueOf(datosCliente.get(0).get(3)));
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
 
         }
 
@@ -197,7 +297,7 @@ public class ModificarCliente extends javax.swing.JFrame {
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton btnCrearCliente;
+        private javax.swing.JButton btnModificarCliente;
         private javax.swing.JButton btnRegresar;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JLabel lbBienvenido;

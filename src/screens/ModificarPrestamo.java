@@ -1,4 +1,4 @@
-// cSpell:ignore alverata configuracion devolucion prestamo gestion 
+// cSpell:ignore alverata configuracion devolucion prestamo gestion  boton operacion
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -6,8 +6,22 @@
 package screens;
 
 import java.awt.EventQueue;
+import java.time.LocalDate;
+
+import javax.swing.JFormattedTextField;
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.sql.SQLException;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+
+import classes.OperacionCRUD;
+import raven.datetime.component.date.DateEvent;
+import raven.datetime.component.date.DatePicker;
+import raven.datetime.component.date.DateSelectionListener;
+import screens.custom.CambiarIU;
+import screens.custom.ObtenerIU;
 
 /**
  *
@@ -32,23 +46,22 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
-
+                ftFechaDevolucion = new JFormattedTextField();
+                datePicker = new DatePicker();
                 jPanel1 = new javax.swing.JPanel();
                 lbBienvenido = new javax.swing.JLabel();
+                btnModificarPrestamo = new javax.swing.JButton();
+                btnRegresar = new javax.swing.JButton();
                 lbCliente = new javax.swing.JLabel();
                 cbCliente = new javax.swing.JComboBox<>();
                 lbLibro = new javax.swing.JLabel();
                 cbLibro = new javax.swing.JComboBox<>();
                 lbFechaDevolucion = new javax.swing.JLabel();
-                tfFechaDevolucion = new javax.swing.JTextField();
-                btnModificarPrestamo = new javax.swing.JButton();
-                lbFechaPrestamo = new javax.swing.JLabel();
-                tfFechaPrestamo = new javax.swing.JTextField();
                 lbEstado = new javax.swing.JLabel();
                 cbEstado = new javax.swing.JComboBox<>();
-                btnRegresar = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +74,28 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 lbBienvenido.setText("MODIFICAR PRESTAMO");
                 jPanel1.add(lbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 590, -1));
 
+                btnModificarPrestamo.setBackground(new java.awt.Color(140, 120, 81));
+                btnModificarPrestamo.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+                btnModificarPrestamo.setForeground(new java.awt.Color(255, 255, 254));
+                btnModificarPrestamo.setText("Modificar Prestamo");
+                btnModificarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnModificarPrestamoActionPerformed(evt);
+                        }
+                });
+                jPanel1.add(btnModificarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+
+                btnRegresar.setBackground(new java.awt.Color(140, 120, 81));
+                btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+                btnRegresar.setForeground(new java.awt.Color(255, 255, 254));
+                btnRegresar.setText("Regresar");
+                btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnRegresarActionPerformed(evt);
+                        }
+                });
+                jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+
                 lbCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 lbCliente.setForeground(new java.awt.Color(2, 8, 38));
                 lbCliente.setText("CLIENTE:");
@@ -69,10 +104,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 cbCliente.setBackground(new java.awt.Color(234, 221, 207));
                 cbCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 cbCliente.setForeground(new java.awt.Color(2, 8, 38));
-                cbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Narrativa", "Poesía", "Drama",
-                                "Ensayo", "Épica", "Lírica", "Cuento", "Novela", "Fábula", "Mito", "Leyenda",
-                                "Autobiografía", "Biografía", "Crónica", "Epopeya", "Sátira", "Oratoria", "Diario",
-                                "Epístola", "Tragedia", "Otro" }));
+                cbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona" }));
                 cbCliente.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 cbClienteActionPerformed(evt);
@@ -88,10 +120,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 cbLibro.setBackground(new java.awt.Color(234, 221, 207));
                 cbLibro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 cbLibro.setForeground(new java.awt.Color(2, 8, 38));
-                cbLibro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Narrativa", "Poesía", "Drama",
-                                "Ensayo", "Épica", "Lírica", "Cuento", "Novela", "Fábula", "Mito", "Leyenda",
-                                "Autobiografía", "Biografía", "Crónica", "Epopeya", "Sátira", "Oratoria", "Diario",
-                                "Epístola", "Tragedia", "Otro" }));
+                cbLibro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
                 cbLibro.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 cbLibroActionPerformed(evt);
@@ -102,61 +131,41 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 lbFechaDevolucion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 lbFechaDevolucion.setForeground(new java.awt.Color(2, 8, 38));
                 lbFechaDevolucion.setText("FECHA DEVOLUCIÓN:");
-                jPanel1.add(lbFechaDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 190, -1));
+                jPanel1.add(lbFechaDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 190, -1));
 
-                tfFechaDevolucion.setBackground(new java.awt.Color(234, 221, 207));
-                tfFechaDevolucion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfFechaDevolucion.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfFechaDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 130, -1));
+                datePicker.setDateSelectionMode(DatePicker.DateSelectionMode.SINGLE_DATE_SELECTED);
 
-                btnModificarPrestamo.setBackground(new java.awt.Color(140, 120, 81));
-                btnModificarPrestamo.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-                btnModificarPrestamo.setForeground(new java.awt.Color(255, 255, 254));
-                btnModificarPrestamo.setText("Modificar Prestamo");
-                btnModificarPrestamo.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnModificarPrestamoActionPerformed(evt);
+                datePicker.setEditor(ftFechaDevolucion);
+                ftFechaDevolucion.setBackground(new java.awt.Color(234, 221, 207));
+                ftFechaDevolucion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                ftFechaDevolucion.setForeground(new java.awt.Color(2, 8, 38));
+                jPanel1.add(ftFechaDevolucion,
+                                new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 130, -1));
+                datePicker.setDateSelectionAble(localDate -> localDate.isAfter(LocalDate.now()));
+
+                datePicker.addDateSelectionListener(new DateSelectionListener() {
+                        @Override
+                        public void dateSelected(DateEvent dateEvent) {
+                                desactivarBotonModificarPrestamo();
                         }
                 });
-                jPanel1.add(btnModificarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
-
-                lbFechaPrestamo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbFechaPrestamo.setForeground(new java.awt.Color(2, 8, 38));
-                lbFechaPrestamo.setText("FECHA PRESTAMO:");
-                jPanel1.add(lbFechaPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 190, -1));
-
-                tfFechaPrestamo.setBackground(new java.awt.Color(234, 221, 207));
-                tfFechaPrestamo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfFechaPrestamo.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfFechaPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 130, -1));
 
                 lbEstado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 lbEstado.setForeground(new java.awt.Color(2, 8, 38));
                 lbEstado.setText("ESTADO:");
-                jPanel1.add(lbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, -1));
+                jPanel1.add(lbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 110, -1));
 
                 cbEstado.setBackground(new java.awt.Color(234, 221, 207));
                 cbEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 cbEstado.setForeground(new java.awt.Color(2, 8, 38));
                 cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Pendiente", "Entregado", "Sin Devolver" }));
+                                new String[] { "Seleccionar", "Pendiente", "Devuelto" }));
                 cbEstado.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 cbEstadoActionPerformed(evt);
                         }
                 });
-                jPanel1.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 210, -1));
-
-                btnRegresar.setBackground(new java.awt.Color(140, 120, 81));
-                btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-                btnRegresar.setForeground(new java.awt.Color(255, 255, 254));
-                btnRegresar.setText("Regresar");
-                btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnRegresarActionPerformed(evt);
-                        }
-                });
-                jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+                jPanel1.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 210, -1));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -173,6 +182,20 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
+        private void cbClienteActionPerformed(java.awt.event.ActionEvent evt) {
+                desactivarBotonModificarPrestamo();
+
+        }
+
+        private void cbLibroActionPerformed(java.awt.event.ActionEvent evt) {
+                desactivarBotonModificarPrestamo();
+
+        }
+
+        private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {
+                desactivarBotonModificarPrestamo();
+        }
+
         private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {
                 GestionPrestamos gp = new GestionPrestamos();
                 gp.setVisible(true);
@@ -181,21 +204,10 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         }
 
         private void btnModificarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarPrestamo mp = new ModificarPrestamo();
-                mp.setVisible(true);
+                modificarIdPrestamoSeleccionado();
+                GestionPrestamos gp = new GestionPrestamos();
+                gp.setVisible(true);
                 this.setVisible(false);
-
-        }
-
-        private void cbClienteActionPerformed(java.awt.event.ActionEvent evt) {
-
-        }
-
-        private void cbLibroActionPerformed(java.awt.event.ActionEvent evt) {
-
-        }
-
-        private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {
 
         }
 
@@ -203,7 +215,97 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 this.setTitle("Modificar Préstamo");
                 this.setResizable(false);
                 this.setLocationRelativeTo(null);
+                ponerClientes();
+                ponerLibros();
+                llenarCampos();
+                desactivarBotonModificarPrestamo();
 
+        }
+
+        private void desactivarBotonModificarPrestamo() {
+                boolean camposValidos = ObtenerIU.obtenerSeleccionCombo(cbCliente) != "Seleccionar" &&
+                                ObtenerIU.obtenerSeleccionCombo(cbLibro) != "Seleccionar"
+                                && !ftFechaDevolucion.getText().equals("--/--/----");
+                btnModificarPrestamo.setEnabled(camposValidos);
+
+        }
+
+        private void llenarCampos() {
+                int idPrestamoModificar = GestionPrestamos.idPrestamoSeleccionado;
+                ArrayList<ArrayList<Object>> datosPrestamo, datosCliente, datosLibro;
+                try {
+                        datosPrestamo = OperacionCRUD.seleccionar(
+                                        "select * from prestamos where id= " + idPrestamoModificar,
+                                        new String[] { "id_cliente", "id_libro", "fecha_devolucion", "estado"
+                                        });
+
+                        datosCliente = OperacionCRUD.seleccionar(
+                                        "select * from clientes where id= " + datosPrestamo.get(0).get(0),
+                                        new String[] { "id", "nombre" });
+                        datosLibro = OperacionCRUD.seleccionar(
+                                        "select * from libros where id= " + datosPrestamo.get(0).get(1),
+                                        new String[] { "id", "titulo" });
+
+                        cbCliente.setSelectedItem(datosCliente.get(0).get(0) + " - " + datosCliente.get(0).get(1));
+                        cbLibro.setSelectedItem(datosLibro.get(0).get(0) + " - " + datosLibro.get(0).get(1));
+                        datePicker.setSelectedDate(LocalDate.parse(String.valueOf(datosPrestamo.get(0).get(2))));
+                        cbEstado.setSelectedItem(String.valueOf(datosPrestamo.get(0).get(3)));
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+
+        }
+
+        private void modificarIdPrestamoSeleccionado() {
+                try {
+                        int idPrestamoModificar = GestionPrestamos.idPrestamoSeleccionado;
+
+                        String[] datosCliente = ObtenerIU.obtenerSeleccionCombo(cbCliente).split(" - ");
+                        String[] datosLibro = ObtenerIU.obtenerSeleccionCombo(cbLibro).split(" - ");
+                        String idCliente = String.valueOf(datosCliente[0]);
+                        String idLibro = String.valueOf(datosLibro[0]);
+                        String fechaDevolucion = ObtenerIU.obtenerFechaSeleccionada(datePicker);
+                        String estado = String.valueOf(ObtenerIU.obtenerSeleccionCombo(cbEstado));
+                        OperacionCRUD.actualizar(
+                                        String.format("UPDATE prestamos SET id_cliente = %s, id_libro = %s, fecha_devolucion = '%s', estado = '%s' WHERE id = %s",
+                                                        idCliente, idLibro, fechaDevolucion, estado,
+                                                        idPrestamoModificar));
+
+                        JOptionPane.showMessageDialog(null, "PRESTAMO MODIFICADO CON ÉXITO");
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+
+        }
+
+        private void ponerClientes() {
+                try {
+                        ArrayList<ArrayList<Object>> listaClientes = OperacionCRUD.seleccionar(
+                                        "select id, nombre from clientes",
+                                        new String[] { "id", "nombre" });
+
+                        for (ArrayList<Object> fila : listaClientes) {
+                                cbCliente.addItem(fila.get(0) + " - " + fila.get(1));
+                        }
+
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+        }
+
+        private void ponerLibros() {
+                try {
+                        ArrayList<ArrayList<Object>> listaLibros = OperacionCRUD.seleccionar(
+                                        "select id, titulo from libros",
+                                        new String[] { "id", "titulo" });
+
+                        for (ArrayList<Object> fila : listaLibros) {
+                                cbLibro.addItem(fila.get(0) + " - " + fila.get(1));
+                        }
+
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
         }
 
         /**
@@ -225,9 +327,9 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         private javax.swing.JLabel lbCliente;
         private javax.swing.JLabel lbEstado;
         private javax.swing.JLabel lbFechaDevolucion;
-        private javax.swing.JLabel lbFechaPrestamo;
         private javax.swing.JLabel lbLibro;
-        private javax.swing.JTextField tfFechaDevolucion;
-        private javax.swing.JTextField tfFechaPrestamo;
+        public static DatePicker datePicker;
+        private JFormattedTextField ftFechaDevolucion;
+
         // End of variables declaration//GEN-END:variables
 }

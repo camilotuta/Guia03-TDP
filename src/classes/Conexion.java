@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    static String url = "jdbc:sqlite:C:/Users/tutaa/Workspace/Java/Courses/Taller de Programación/Guia03/GestionDeLibros/src/db/biblioteca.db";
+    static String url = "jdbc:sqlite:src/db/biblioteca.db";
     static Connection connect;
     static PreparedStatement pSt;
     static ResultSet result = null;
@@ -44,18 +44,20 @@ public class Conexion {
 
         // ^ REGISTRAR
         // OperacionCRUD.registrar(
-        //         "INSERT INTO usuarios (correo,contraseña,nombre,departamento,ciudad,edad,"
-        //                 + "fecha_registro ) VALUES ('laura@gmail.com','Laura1234!','Laura Gomez',"
-        //                 // cSpell:disable-next-line
-        //                 + "'Antioquia','Medellín',25,DATE ('now'));");
+        // "INSERT INTO usuarios (correo,contraseña,nombre,departamento,ciudad,edad,"
+        // + "fecha_registro ) VALUES ('laura@gmail.com','Laura1234!','Laura Gomez',"
+        // // cSpell:disable-next-line
+        // + "'Antioquia','Medellín',25,DATE ('now'));");
         // ^ ELIMINAR
-        // OperacionCRUD.eliminar("delete from usuarios where correo like '%@example%'");
+        // OperacionCRUD.eliminar("delete from usuarios where correo like
+        // '%@example%'");
         // ^ SELECCIONAR
         // System.out.println(OperacionCRUD.seleccionar("select * from usuarios",
-        //         new String[] { "nombre", "edad", "correo" }));
+        // new String[] { "nombre", "edad", "correo" }));
         // ^ ACTUALIZAR
-        // OperacionCRUD.actualizar("update usuarios set nombre = 'Adrian Camilo Tuta Cortes' where "
-        //         + "id_usuario = 1");
+        // OperacionCRUD.actualizar("update usuarios set nombre = 'Adrian Camilo Tuta
+        // Cortes' where "
+        // + "id_usuario = 1");
     }
 
 }

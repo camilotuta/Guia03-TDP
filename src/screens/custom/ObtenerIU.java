@@ -33,6 +33,10 @@ public class ObtenerIU {
         return (int) campo.getText().length();
     }
 
+    public static int obtenerLongitudTextoArea(JTextArea area) {
+        return (int) area.getText().length();
+    }
+
     @SuppressWarnings("rawtypes")
     public static String obtenerSeleccionCombo(JComboBox comboBox) {
         Object selectedItem = comboBox.getSelectedItem();

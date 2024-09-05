@@ -353,15 +353,18 @@ public class GestionPrestamos extends javax.swing.JFrame {
 
         private void registrarPrestamo() {
                 try {
-                        int idCliente = (int) (ObtenerIU.obtenerSeleccionCombo(cbCliente).charAt(0));
-                        int idLibro = (int) (ObtenerIU.obtenerSeleccionCombo(cbCliente).charAt(0));
+                        String[] datosCliente = ObtenerIU.obtenerSeleccionCombo(cbCliente).split(" - ");
+                        String[] datosLibro = ObtenerIU.obtenerSeleccionCombo(cbLibro).split(" - ");
+                        String idCliente = String.valueOf(datosCliente[0]);
+                        String idLibro = String.valueOf(datosLibro[0]);
                         String fechaDevolucion = ObtenerIU.obtenerFechaSeleccionada(datePicker);
                         OperacionCRUD.registrar(
-                                        String.format("insert into prestamos(id_cliente,id_libro,fecha_devolucion) values (%d,%d,'%s')",
+                                        String.format("insert into prestamos(id_cliente,id_libro,fecha_devolucion) values (%s,%s,'%s')",
                                                         idCliente, idLibro, fechaDevolucion));
                         JOptionPane.showMessageDialog(null, "PRESTAMO REGISTRADO CON ÉXITO");
                         limpiarCampos();
                         llenarTablaPrestamos();
+                        desactivarBotonCrearNuevoPrestamo();
                 } catch (SQLException e) {
                         e.printStackTrace();
                 }
@@ -408,6 +411,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         public static DatePicker datePicker;
+        private JFormattedTextField ftFechaDevolucion;
         private javax.swing.JButton btnCrearPrestamo;
         private javax.swing.JButton btnEliminarPrestamo;
         private javax.swing.JButton btnModificarPrestamo;
@@ -421,6 +425,5 @@ public class GestionPrestamos extends javax.swing.JFrame {
         private javax.swing.JLabel lbPrestamos;
         private javax.swing.JScrollPane spTabla;
         private javax.swing.JTable tTablaPrestamos;
-        private JFormattedTextField ftFechaDevolucion;
         // End of variables declaration//GEN-END:variables
 }

@@ -74,7 +74,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="20" width="850" height="-1"/>
+              <AbsoluteConstraints x="0" y="20" width="1320" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -106,6 +106,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfTituloKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="200" y="130" width="210" height="-1"/>
@@ -140,6 +143,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAutorKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="200" y="170" width="210" height="-1"/>
@@ -174,28 +180,33 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="21">
-                <StringItem index="0" value="Narrativa"/>
-                <StringItem index="1" value="Poes&#xed;a"/>
-                <StringItem index="2" value="Drama"/>
-                <StringItem index="3" value="Ensayo"/>
-                <StringItem index="4" value="&#xc9;pica"/>
-                <StringItem index="5" value="L&#xed;rica"/>
-                <StringItem index="6" value="Cuento"/>
-                <StringItem index="7" value="Novela"/>
-                <StringItem index="8" value="F&#xe1;bula"/>
-                <StringItem index="9" value="Mito"/>
-                <StringItem index="10" value="Leyenda"/>
-                <StringItem index="11" value="Autobiograf&#xed;a"/>
-                <StringItem index="12" value="Biograf&#xed;a"/>
-                <StringItem index="13" value="Cr&#xf3;nica"/>
-                <StringItem index="14" value="Epopeya"/>
-                <StringItem index="15" value="S&#xe1;tira"/>
-                <StringItem index="16" value="Oratoria"/>
-                <StringItem index="17" value="Diario"/>
-                <StringItem index="18" value="Ep&#xed;stola"/>
-                <StringItem index="19" value="Tragedia"/>
-                <StringItem index="20" value="Otro"/>
+              <StringArray count="26">
+                <StringItem index="0" value="Seleccionar"/>
+                <StringItem index="1" value="Narrativa"/>
+                <StringItem index="2" value="Poes&#xed;a"/>
+                <StringItem index="3" value="Drama"/>
+                <StringItem index="4" value="Ensayo"/>
+                <StringItem index="5" value="&#xc9;pica"/>
+                <StringItem index="6" value="L&#xed;rica"/>
+                <StringItem index="7" value="Cuento"/>
+                <StringItem index="8" value="Novela"/>
+                <StringItem index="9" value="F&#xe1;bula"/>
+                <StringItem index="10" value="Mito"/>
+                <StringItem index="11" value="Leyenda"/>
+                <StringItem index="12" value="Autobiograf&#xed;a"/>
+                <StringItem index="13" value="Biograf&#xed;a"/>
+                <StringItem index="14" value="Cr&#xf3;nica"/>
+                <StringItem index="15" value="Epopeya"/>
+                <StringItem index="16" value="S&#xe1;tira"/>
+                <StringItem index="17" value="Oratoria"/>
+                <StringItem index="18" value="Diario"/>
+                <StringItem index="19" value="Realismo M&#xe1;gico"/>
+                <StringItem index="20" value="Distop&#xed;a"/>
+                <StringItem index="21" value="Cl&#xe1;sico"/>
+                <StringItem index="22" value="Misterio"/>
+                <StringItem index="23" value="Ep&#xed;stola"/>
+                <StringItem index="24" value="Tragedia"/>
+                <StringItem index="25" value="Otro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -239,6 +250,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditorialKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="200" y="250" width="210" height="-1"/>
@@ -273,6 +287,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfNumeroPaginasKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="290" width="130" height="-1"/>
@@ -307,28 +324,29 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="21">
-                <StringItem index="0" value="Espa&#xf1;ol"/>
-                <StringItem index="1" value="Ingl&#xe9;s"/>
-                <StringItem index="2" value="Mandar&#xed;n"/>
-                <StringItem index="3" value="Franc&#xe9;s"/>
-                <StringItem index="4" value="&#xc1;rabe"/>
-                <StringItem index="5" value="Ruso"/>
-                <StringItem index="6" value="Alem&#xe1;n"/>
-                <StringItem index="7" value="Japon&#xe9;s"/>
-                <StringItem index="8" value="Hindi"/>
-                <StringItem index="9" value="Portugu&#xe9;s"/>
-                <StringItem index="10" value="Italiano"/>
-                <StringItem index="11" value="Coreano"/>
-                <StringItem index="12" value="Bengal&#xed;"/>
-                <StringItem index="13" value="Turco"/>
-                <StringItem index="14" value="Persa"/>
-                <StringItem index="15" value="Suajili"/>
-                <StringItem index="16" value="Holand&#xe9;s"/>
-                <StringItem index="17" value="Vietnamita"/>
-                <StringItem index="18" value="Polaco"/>
-                <StringItem index="19" value="Tailand&#xe9;s"/>
-                <StringItem index="20" value="Otro"/>
+              <StringArray count="22">
+                <StringItem index="0" value="Seleccionar"/>
+                <StringItem index="1" value="Espa&#xf1;ol"/>
+                <StringItem index="2" value="Ingl&#xe9;s"/>
+                <StringItem index="3" value="Mandar&#xed;n"/>
+                <StringItem index="4" value="Franc&#xe9;s"/>
+                <StringItem index="5" value="&#xc1;rabe"/>
+                <StringItem index="6" value="Ruso"/>
+                <StringItem index="7" value="Alem&#xe1;n"/>
+                <StringItem index="8" value="Japon&#xe9;s"/>
+                <StringItem index="9" value="Hindi"/>
+                <StringItem index="10" value="Portugu&#xe9;s"/>
+                <StringItem index="11" value="Italiano"/>
+                <StringItem index="12" value="Coreano"/>
+                <StringItem index="13" value="Bengal&#xed;"/>
+                <StringItem index="14" value="Turco"/>
+                <StringItem index="15" value="Persa"/>
+                <StringItem index="16" value="Suajili"/>
+                <StringItem index="17" value="Holand&#xe9;s"/>
+                <StringItem index="18" value="Vietnamita"/>
+                <StringItem index="19" value="Polaco"/>
+                <StringItem index="20" value="Tailand&#xe9;s"/>
+                <StringItem index="21" value="Otro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -384,8 +402,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="26" green="8" red="2" type="rgb"/>
                 </Property>
+                <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="taSinopsisKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -417,6 +439,9 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEstadoKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="200" y="530" width="210" height="-1"/>
@@ -451,31 +476,12 @@
               <Color blue="26" green="8" red="2" type="rgb"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="570" width="130" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCrearLibro">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="51" green="78" red="8c" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="15" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fe" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Registrar Nuevo Libro"/>
-          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearLibroActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfNumeroCopiasKeyReleased"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="630" width="-1" height="-1"/>
+              <AbsoluteConstraints x="280" y="570" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -485,7 +491,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="130" width="370" height="470"/>
+              <AbsoluteConstraints x="450" y="130" width="840" height="470"/>
             </Constraint>
           </Constraints>
 
@@ -511,9 +517,34 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tTablaLibrosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="btnCrearLibro">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="51" green="78" red="8c" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Registrar Nuevo Libro"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearLibroActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="150" y="630" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JButton" name="btnModificarLibro">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -554,7 +585,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="630" width="-1" height="-1"/>
+              <AbsoluteConstraints x="1140" y="630" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

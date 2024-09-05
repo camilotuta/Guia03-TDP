@@ -1,9 +1,16 @@
-// cSpell:ignore alverata configuracion gestion
+// cSpell:ignore alverata configuracion gestion boton operacion
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package screens;
+
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.sql.SQLException;
+import classes.OperacionCRUD;
+import screens.custom.CambiarIU;
+import screens.custom.ObtenerIU;
 
 /**
  *
@@ -28,11 +35,15 @@ public class ModificarLibro extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
 
                 jPanel1 = new javax.swing.JPanel();
                 lbModificar = new javax.swing.JLabel();
+                btnModificarLibro = new javax.swing.JButton();
+                btnRegresar = new javax.swing.JButton();
                 lbTitulo = new javax.swing.JLabel();
                 tfTitulo = new javax.swing.JTextField();
                 lbAutor = new javax.swing.JLabel();
@@ -52,8 +63,6 @@ public class ModificarLibro extends javax.swing.JFrame {
                 tfEstado = new javax.swing.JTextField();
                 lbNumeroCopias = new javax.swing.JLabel();
                 tfNumeroCopias = new javax.swing.JTextField();
-                btnCrearLibro = new javax.swing.JButton();
-                btnRegresar = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,128 +75,16 @@ public class ModificarLibro extends javax.swing.JFrame {
                 lbModificar.setText("MODIFICAR LIBRO");
                 jPanel1.add(lbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 540, -1));
 
-                lbTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbTitulo.setForeground(new java.awt.Color(2, 8, 38));
-                lbTitulo.setText("TÍTULO:");
-                jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 110, -1));
-
-                tfTitulo.setBackground(new java.awt.Color(234, 221, 207));
-                tfTitulo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfTitulo.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 210, -1));
-
-                lbAutor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbAutor.setForeground(new java.awt.Color(2, 8, 38));
-                lbAutor.setText("AUTOR:");
-                jPanel1.add(lbAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, -1));
-
-                tfAutor.setBackground(new java.awt.Color(234, 221, 207));
-                tfAutor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfAutor.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 210, -1));
-
-                lbGenero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbGenero.setForeground(new java.awt.Color(2, 8, 38));
-                lbGenero.setText("GÉNERO:");
-                jPanel1.add(lbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 110, -1));
-
-                cbGenero.setBackground(new java.awt.Color(234, 221, 207));
-                cbGenero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                cbGenero.setForeground(new java.awt.Color(2, 8, 38));
-                cbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Narrativa", "Poesía", "Drama",
-                                "Ensayo", "Épica", "Lírica", "Cuento", "Novela", "Fábula", "Mito", "Leyenda",
-                                "Autobiografía", "Biografía", "Crónica", "Epopeya", "Sátira", "Oratoria", "Diario",
-                                "Epístola", "Tragedia", "Otro" }));
-                cbGenero.addActionListener(new java.awt.event.ActionListener() {
+                btnModificarLibro.setBackground(new java.awt.Color(140, 120, 81));
+                btnModificarLibro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+                btnModificarLibro.setForeground(new java.awt.Color(255, 255, 254));
+                btnModificarLibro.setText("Modificar Libro");
+                btnModificarLibro.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                cbGeneroActionPerformed(evt);
+                                btnModificarLibroActionPerformed(evt);
                         }
                 });
-                jPanel1.add(cbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 210, -1));
-
-                lbEditorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbEditorial.setForeground(new java.awt.Color(2, 8, 38));
-                lbEditorial.setText("EDITORIAL:");
-                jPanel1.add(lbEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 110, -1));
-
-                tfEditorial.setBackground(new java.awt.Color(234, 221, 207));
-                tfEditorial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfEditorial.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 210, -1));
-
-                lbNumeroPaginas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbNumeroPaginas.setForeground(new java.awt.Color(2, 8, 38));
-                lbNumeroPaginas.setText("NÚMERO PÁGINAS:");
-                jPanel1.add(lbNumeroPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
-
-                tfNumeroPaginas.setBackground(new java.awt.Color(234, 221, 207));
-                tfNumeroPaginas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfNumeroPaginas.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfNumeroPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 130, -1));
-
-                lbIdioma.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbIdioma.setForeground(new java.awt.Color(2, 8, 38));
-                lbIdioma.setText("IDIOMA:");
-                jPanel1.add(lbIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 110, -1));
-
-                cbIdioma.setBackground(new java.awt.Color(234, 221, 207));
-                cbIdioma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                cbIdioma.setForeground(new java.awt.Color(2, 8, 38));
-                cbIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés", "Mandarín",
-                                "Francés", "Árabe", "Ruso", "Alemán", "Japonés", "Hindi", "Portugués", "Italiano",
-                                "Coreano", "Bengalí", "Turco", "Persa", "Suajili", "Holandés", "Vietnamita", "Polaco",
-                                "Tailandés", "Otro" }));
-                cbIdioma.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                cbIdiomaActionPerformed(evt);
-                        }
-                });
-                jPanel1.add(cbIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 210, -1));
-
-                lbSinopsis.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbSinopsis.setForeground(new java.awt.Color(2, 8, 38));
-                lbSinopsis.setText("SINOPSIS:");
-                jPanel1.add(lbSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 110, -1));
-
-                taSinopsis.setBackground(new java.awt.Color(234, 221, 207));
-                taSinopsis.setColumns(20);
-                taSinopsis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                taSinopsis.setForeground(new java.awt.Color(2, 8, 38));
-                taSinopsis.setRows(5);
-                spSinopsis.setViewportView(taSinopsis);
-
-                jPanel1.add(spSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 310, 100));
-
-                lbEstado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbEstado.setForeground(new java.awt.Color(2, 8, 38));
-                lbEstado.setText("ESTADO:");
-                jPanel1.add(lbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, 110, -1));
-
-                tfEstado.setBackground(new java.awt.Color(234, 221, 207));
-                tfEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfEstado.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, 210, -1));
-
-                lbNumeroCopias.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-                lbNumeroCopias.setForeground(new java.awt.Color(2, 8, 38));
-                lbNumeroCopias.setText("NÚMERO COPIAS:");
-                jPanel1.add(lbNumeroCopias, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 160, -1));
-
-                tfNumeroCopias.setBackground(new java.awt.Color(234, 221, 207));
-                tfNumeroCopias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                tfNumeroCopias.setForeground(new java.awt.Color(2, 8, 38));
-                jPanel1.add(tfNumeroCopias, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 130, -1));
-
-                btnCrearLibro.setBackground(new java.awt.Color(140, 120, 81));
-                btnCrearLibro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-                btnCrearLibro.setForeground(new java.awt.Color(255, 255, 254));
-                btnCrearLibro.setText("Modificar Libro");
-                btnCrearLibro.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnCrearLibroActionPerformed(evt);
-                        }
-                });
-                jPanel1.add(btnCrearLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, -1, -1));
+                jPanel1.add(btnModificarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, -1, -1));
 
                 btnRegresar.setBackground(new java.awt.Color(140, 120, 81));
                 btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -199,6 +96,155 @@ public class ModificarLibro extends javax.swing.JFrame {
                         }
                 });
                 jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, -1, -1));
+
+                lbTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbTitulo.setForeground(new java.awt.Color(2, 8, 38));
+                lbTitulo.setText("TÍTULO:");
+                jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 110, -1));
+
+                tfTitulo.setBackground(new java.awt.Color(234, 221, 207));
+                tfTitulo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfTitulo.setForeground(new java.awt.Color(2, 8, 38));
+                tfTitulo.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfTituloKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 210, -1));
+
+                lbAutor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbAutor.setForeground(new java.awt.Color(2, 8, 38));
+                lbAutor.setText("AUTOR:");
+                jPanel1.add(lbAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 110, -1));
+
+                tfAutor.setBackground(new java.awt.Color(234, 221, 207));
+                tfAutor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfAutor.setForeground(new java.awt.Color(2, 8, 38));
+                tfAutor.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfAutorKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 210, -1));
+
+                lbGenero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbGenero.setForeground(new java.awt.Color(2, 8, 38));
+                lbGenero.setText("GÉNERO:");
+                jPanel1.add(lbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 110, -1));
+
+                cbGenero.setBackground(new java.awt.Color(234, 221, 207));
+                cbGenero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                cbGenero.setForeground(new java.awt.Color(2, 8, 38));
+                cbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Narrativa",
+                                "Poesía", "Drama", "Ensayo", "Épica", "Lírica", "Cuento", "Novela", "Fábula", "Mito",
+                                "Leyenda", "Autobiografía", "Biografía", "Crónica", "Epopeya", "Sátira", "Oratoria",
+                                "Diario", "Realismo Mágico", "Distopía", "Clásico", "Misterio", "Epístola", "Tragedia",
+                                "Otro" }));
+                cbGenero.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                cbGeneroActionPerformed(evt);
+                        }
+                });
+                jPanel1.add(cbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 210, -1));
+
+                lbEditorial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbEditorial.setForeground(new java.awt.Color(2, 8, 38));
+                lbEditorial.setText("EDITORIAL:");
+                jPanel1.add(lbEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 110, -1));
+
+                tfEditorial.setBackground(new java.awt.Color(234, 221, 207));
+                tfEditorial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfEditorial.setForeground(new java.awt.Color(2, 8, 38));
+                tfEditorial.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfEditorialKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, -1));
+
+                lbNumeroPaginas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbNumeroPaginas.setForeground(new java.awt.Color(2, 8, 38));
+                lbNumeroPaginas.setText("NÚMERO PÁGINAS:");
+                jPanel1.add(lbNumeroPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, -1));
+
+                tfNumeroPaginas.setBackground(new java.awt.Color(234, 221, 207));
+                tfNumeroPaginas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfNumeroPaginas.setForeground(new java.awt.Color(2, 8, 38));
+                tfNumeroPaginas.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfNumeroPaginasKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfNumeroPaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 130, -1));
+
+                lbIdioma.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbIdioma.setForeground(new java.awt.Color(2, 8, 38));
+                lbIdioma.setText("IDIOMA:");
+                jPanel1.add(lbIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 110, -1));
+
+                cbIdioma.setBackground(new java.awt.Color(234, 221, 207));
+                cbIdioma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                cbIdioma.setForeground(new java.awt.Color(2, 8, 38));
+                cbIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Español",
+                                "Inglés", "Mandarín", "Francés", "Árabe", "Ruso", "Alemán", "Japonés", "Hindi",
+                                "Portugués", "Italiano", "Coreano", "Bengalí", "Turco", "Persa", "Suajili", "Holandés",
+                                "Vietnamita", "Polaco", "Tailandés", "Otro" }));
+                cbIdioma.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                cbIdiomaActionPerformed(evt);
+                        }
+                });
+                jPanel1.add(cbIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 210, -1));
+
+                lbSinopsis.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbSinopsis.setForeground(new java.awt.Color(2, 8, 38));
+                lbSinopsis.setText("SINOPSIS:");
+                jPanel1.add(lbSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 110, -1));
+
+                taSinopsis.setBackground(new java.awt.Color(234, 221, 207));
+                taSinopsis.setColumns(20);
+                taSinopsis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                taSinopsis.setForeground(new java.awt.Color(2, 8, 38));
+                taSinopsis.setLineWrap(true);
+                taSinopsis.setRows(5);
+                taSinopsis.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                taSinopsisKeyReleased(evt);
+                        }
+                });
+                spSinopsis.setViewportView(taSinopsis);
+
+                jPanel1.add(spSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 310, 100));
+
+                lbEstado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbEstado.setForeground(new java.awt.Color(2, 8, 38));
+                lbEstado.setText("ESTADO:");
+                jPanel1.add(lbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, 110, -1));
+
+                tfEstado.setBackground(new java.awt.Color(234, 221, 207));
+                tfEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfEstado.setForeground(new java.awt.Color(2, 8, 38));
+                tfEstado.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfEstadoKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 210, -1));
+
+                lbNumeroCopias.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+                lbNumeroCopias.setForeground(new java.awt.Color(2, 8, 38));
+                lbNumeroCopias.setText("NÚMERO COPIAS:");
+                jPanel1.add(lbNumeroCopias, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 160, -1));
+
+                tfNumeroCopias.setBackground(new java.awt.Color(234, 221, 207));
+                tfNumeroCopias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tfNumeroCopias.setForeground(new java.awt.Color(2, 8, 38));
+                tfNumeroCopias.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                                tfNumeroCopiasKeyReleased(evt);
+                        }
+                });
+                jPanel1.add(tfNumeroCopias, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 560, 130, -1));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -218,6 +264,50 @@ public class ModificarLibro extends javax.swing.JFrame {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
+        private void tfTituloKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void tfAutorKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void tfEditorialKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void tfNumeroPaginasKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void tfEstadoKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void tfNumeroCopiasKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void taSinopsisKeyReleased(java.awt.event.KeyEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {
+                desactivarBotonModificarLibro();
+        }
+
+        private void cbIdiomaActionPerformed(java.awt.event.ActionEvent evt) {
+                desactivarBotonModificarLibro();
+
+        }
+
         private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {
                 GestionLibros gl = new GestionLibros();
                 gl.setVisible(true);
@@ -225,22 +315,92 @@ public class ModificarLibro extends javax.swing.JFrame {
 
         }
 
-        private void btnCrearLibroActionPerformed(java.awt.event.ActionEvent evt) {
-
-        }
-
-        private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {
-
-        }
-
-        private void cbIdiomaActionPerformed(java.awt.event.ActionEvent evt) {
-
+        private void btnModificarLibroActionPerformed(java.awt.event.ActionEvent evt) {
+                modificarIdLibroSeleccionado();
+                GestionLibros gl = new GestionLibros();
+                gl.setVisible(true);
+                this.setVisible(false);
         }
 
         private void configuracionPantalla() {
                 this.setTitle("Modificar Libro");
                 this.setResizable(false);
                 this.setLocationRelativeTo(null);
+                llenarCampos();
+                desactivarBotonModificarLibro();
+
+        }
+
+        private void desactivarBotonModificarLibro() {
+                boolean camposValidos = ObtenerIU.obtenerLongitudTextoCampo(tfTitulo) > 2
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfAutor) > 8
+                                && ObtenerIU.obtenerSeleccionCombo(cbGenero) != "Seleccionar"
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfEditorial) > 2
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfNumeroPaginas) > 0
+                                && ObtenerIU.obtenerSeleccionCombo(cbIdioma) != "Seleccionar"
+                                && ObtenerIU.obtenerLongitudTextoArea(taSinopsis) > 8
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfEstado) > 4
+                                && ObtenerIU.obtenerLongitudTextoCampo(tfNumeroCopias) > 0;
+                btnModificarLibro.setEnabled(camposValidos);
+        }
+
+        private void modificarIdLibroSeleccionado() {
+                try {
+                        int idLibroModificar = GestionLibros.idLibroSeleccionado;
+                        String titulo = ObtenerIU.obtenerTextoCampo(tfTitulo);
+                        String autor = ObtenerIU.obtenerTextoCampo(tfAutor);
+                        String editorial = ObtenerIU.obtenerTextoCampo(tfEditorial);
+                        String estado = ObtenerIU.obtenerTextoCampo(tfEstado);
+                        int numeroPaginas, numeroCopias;
+                        try {
+                                numeroPaginas = Integer.parseInt(ObtenerIU.obtenerTextoCampo(tfNumeroPaginas));
+                        } catch (Exception err) {
+                                numeroPaginas = -1;
+                        }
+                        try {
+                                numeroCopias = Integer.parseInt(ObtenerIU.obtenerTextoCampo(tfNumeroCopias));
+                        } catch (Exception e) {
+                                numeroCopias = -1;
+                        }
+                        String sinopsis = ObtenerIU.obtenerTextoArea(taSinopsis);
+                        String genero = ObtenerIU.obtenerSeleccionCombo(cbGenero);
+                        String idioma = ObtenerIU.obtenerSeleccionCombo(cbIdioma);
+
+                        OperacionCRUD.actualizar(
+                                        String.format("UPDATE libros SET titulo = '%s', autor = '%s', editorial = '%s', estado = '%s', numero_paginas = %d, numero_copias = %d, sinopsis = '%s', genero = '%s', idioma = '%s' WHERE id = %d",
+                                                        titulo, autor, editorial, estado, numeroPaginas, numeroCopias,
+                                                        sinopsis, genero, idioma, idLibroModificar));
+
+                        String nombreLibroRegistrado = String.format("EL LIBRO %s HA SIDO MODIFICADO CON ÉXITO.",
+                                        ObtenerIU.obtenerTextoCampo(tfTitulo).toUpperCase());
+                        JOptionPane.showMessageDialog(null, nombreLibroRegistrado);
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+        }
+
+        private void llenarCampos() {
+                int idLibroModificar = GestionLibros.idLibroSeleccionado;
+                ArrayList<ArrayList<Object>> datosLibro;
+                try {
+                        datosLibro = OperacionCRUD.seleccionar(
+                                        "select * from libros where id= " + idLibroModificar,
+                                        new String[] { "titulo", "autor", "genero", "editorial", "numero_paginas",
+                                                        "idioma", "sinopsis", "estado", "numero_copias",
+                                        });
+
+                        CambiarIU.ponerTextoCampo(tfTitulo, String.valueOf(datosLibro.get(0).get(0)));
+                        CambiarIU.ponerTextoCampo(tfAutor, String.valueOf(datosLibro.get(0).get(1)));
+                        cbGenero.setSelectedItem(String.valueOf(datosLibro.get(0).get(2)));
+                        CambiarIU.ponerTextoCampo(tfEditorial, String.valueOf(datosLibro.get(0).get(3)));
+                        CambiarIU.ponerTextoCampo(tfNumeroPaginas, String.valueOf(datosLibro.get(0).get(4)));
+                        cbIdioma.setSelectedItem(String.valueOf(datosLibro.get(0).get(5)));
+                        CambiarIU.ponerTextoArea(taSinopsis, String.valueOf(datosLibro.get(0).get(6)));
+                        CambiarIU.ponerTextoCampo(tfEstado, String.valueOf(datosLibro.get(0).get(7)));
+                        CambiarIU.ponerTextoCampo(tfNumeroCopias, String.valueOf(datosLibro.get(0).get(8)));
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
 
         }
 
@@ -296,7 +456,7 @@ public class ModificarLibro extends javax.swing.JFrame {
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton btnCrearLibro;
+        private javax.swing.JButton btnModificarLibro;
         private javax.swing.JButton btnRegresar;
         private javax.swing.JComboBox<String> cbGenero;
         private javax.swing.JComboBox<String> cbIdioma;

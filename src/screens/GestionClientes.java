@@ -7,9 +7,9 @@ package screens;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 import classes.OperacionCRUD;
 import screens.custom.CambiarIU;
@@ -366,7 +366,7 @@ public class GestionClientes extends javax.swing.JFrame {
                         String direccion = ObtenerIU.obtenerTextoCampo(tfDireccion);
                         String telefono = ObtenerIU.obtenerTextoCampo(tfTelefono);
                         String email = ObtenerIU.obtenerTextoCampo(tfEmail);
-                        OperacionCRUD.registrar(
+                        OperacionCRUD.actualizar(
                                         String.format("insert into clientes(nombre,direccion,telefono,email) values ('%s','%s','%s','%s')",
                                                         nombre, direccion, telefono, email));
                         String nombreClienteRegistrado = String.format("EL CLIENTE %s HA SIDO REGISTRADO CON ÉXITO.",
@@ -374,6 +374,7 @@ public class GestionClientes extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, nombreClienteRegistrado);
                         limpiarCampos();
                         llenarTablaClientes();
+                        desactivarBotonCrearNuevoCliente();
                 } catch (SQLException e) {
                         e.printStackTrace();
                 }
