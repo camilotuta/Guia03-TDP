@@ -9,7 +9,6 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import screens.custom.CambiarIU;
 import java.awt.EventQueue;
-//TODO: CAMBIAR BASE DE DATOS, ELIMINAR CAMPOS INNECESARIOS
 
 /**
  *
