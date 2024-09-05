@@ -251,7 +251,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                         datePicker.setSelectedDate(LocalDate.parse(String.valueOf(datosPrestamo.get(0).get(2))));
                         cbEstado.setSelectedItem(String.valueOf(datosPrestamo.get(0).get(3)));
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -273,7 +273,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
 
                         JOptionPane.showMessageDialog(null, "PRESTAMO MODIFICADO CON ÉXITO");
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -289,7 +289,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                         }
 
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -304,7 +304,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                         }
 
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 

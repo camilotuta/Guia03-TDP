@@ -332,7 +332,7 @@ public class GestionClientes extends javax.swing.JFrame {
                         OperacionCRUD.eliminar(
                                         String.format("delete from clientes where id = %d", idClienteSeleccionado));
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -356,7 +356,8 @@ public class GestionClientes extends javax.swing.JFrame {
 
                         spTabla.setViewportView(tTablaClientes);
                 } catch (SQLException e) {
-                        e.printStackTrace();
+
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -376,7 +377,8 @@ public class GestionClientes extends javax.swing.JFrame {
                         llenarTablaClientes();
                         desactivarBotonCrearNuevoCliente();
                 } catch (SQLException e) {
-                        e.printStackTrace();
+
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }

@@ -226,7 +226,7 @@ public class ModificarCliente extends javax.swing.JFrame {
                                         ObtenerIU.obtenerTextoCampo(tfNombre).toUpperCase());
                         JOptionPane.showMessageDialog(null, nombreClienteRegistrado);
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -244,7 +244,7 @@ public class ModificarCliente extends javax.swing.JFrame {
                         CambiarIU.ponerTextoCampo(tfTelefono, String.valueOf(datosCliente.get(0).get(2)));
                         CambiarIU.ponerTextoCampo(tfEmail, String.valueOf(datosCliente.get(0).get(3)));
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }

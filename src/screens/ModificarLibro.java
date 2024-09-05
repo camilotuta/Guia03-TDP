@@ -375,7 +375,7 @@ public class ModificarLibro extends javax.swing.JFrame {
                                         ObtenerIU.obtenerTextoCampo(tfTitulo).toUpperCase());
                         JOptionPane.showMessageDialog(null, nombreLibroRegistrado);
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                       JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -399,7 +399,7 @@ public class ModificarLibro extends javax.swing.JFrame {
                         CambiarIU.ponerTextoCampo(tfEstado, String.valueOf(datosLibro.get(0).get(7)));
                         CambiarIU.ponerTextoCampo(tfNumeroCopias, String.valueOf(datosLibro.get(0).get(8)));
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                       JOptionPane.showMessageDialog(null, e);
                 }
 
         }

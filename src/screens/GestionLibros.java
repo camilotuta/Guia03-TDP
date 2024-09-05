@@ -471,7 +471,7 @@ public class GestionLibros extends javax.swing.JFrame {
                         OperacionCRUD.eliminar(
                                         String.format("delete from libros where id = %d", idLibroSeleccionado));
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -496,7 +496,7 @@ public class GestionLibros extends javax.swing.JFrame {
 
                         spTabla.setViewportView(tTablaLibros);
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -532,7 +532,7 @@ public class GestionLibros extends javax.swing.JFrame {
                         llenarTablaLibros();
                         desactivarBotonCrearNuevoLibro();
                 } catch (SQLException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
