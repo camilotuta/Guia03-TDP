@@ -1,4 +1,4 @@
-// cSpell:ignore alverata configuracion gestion boton operacion
+// cSpell:ignore alverata configuracion gestion boton operacion distopía
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -375,7 +375,7 @@ public class ModificarLibro extends javax.swing.JFrame {
                                         ObtenerIU.obtenerTextoCampo(tfTitulo).toUpperCase());
                         JOptionPane.showMessageDialog(null, nombreLibroRegistrado);
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -391,15 +391,15 @@ public class ModificarLibro extends javax.swing.JFrame {
 
                         CambiarIU.ponerTextoCampo(tfTitulo, String.valueOf(datosLibro.get(0).get(0)));
                         CambiarIU.ponerTextoCampo(tfAutor, String.valueOf(datosLibro.get(0).get(1)));
-                        cbGenero.setSelectedItem(String.valueOf(datosLibro.get(0).get(2)));
+                        CambiarIU.ponerSeleccionCombo(cbGenero, String.valueOf(datosLibro.get(0).get(2)));
                         CambiarIU.ponerTextoCampo(tfEditorial, String.valueOf(datosLibro.get(0).get(3)));
                         CambiarIU.ponerTextoCampo(tfNumeroPaginas, String.valueOf(datosLibro.get(0).get(4)));
-                        cbIdioma.setSelectedItem(String.valueOf(datosLibro.get(0).get(5)));
+                        CambiarIU.ponerSeleccionCombo(cbIdioma, String.valueOf(datosLibro.get(0).get(5)));
                         CambiarIU.ponerTextoArea(taSinopsis, String.valueOf(datosLibro.get(0).get(6)));
                         CambiarIU.ponerTextoCampo(tfEstado, String.valueOf(datosLibro.get(0).get(7)));
                         CambiarIU.ponerTextoCampo(tfNumeroCopias, String.valueOf(datosLibro.get(0).get(8)));
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }

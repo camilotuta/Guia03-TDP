@@ -20,6 +20,7 @@ import classes.OperacionCRUD;
 import raven.datetime.component.date.DateEvent;
 import raven.datetime.component.date.DatePicker;
 import raven.datetime.component.date.DateSelectionListener;
+import screens.custom.CambiarIU;
 import screens.custom.ObtenerIU;
 
 /**
@@ -245,10 +246,12 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                                         "select * from libros where id= " + datosPrestamo.get(0).get(1),
                                         new String[] { "id", "titulo" });
 
-                        cbCliente.setSelectedItem(datosCliente.get(0).get(0) + " - " + datosCliente.get(0).get(1));
-                        cbLibro.setSelectedItem(datosLibro.get(0).get(0) + " - " + datosLibro.get(0).get(1));
-                        datePicker.setSelectedDate(LocalDate.parse(String.valueOf(datosPrestamo.get(0).get(2))));
-                        cbEstado.setSelectedItem(String.valueOf(datosPrestamo.get(0).get(3)));
+                        CambiarIU.ponerSeleccionCombo(cbCliente,
+                                        datosCliente.get(0).get(0) + " - " + datosCliente.get(0).get(1));
+                        CambiarIU.ponerSeleccionCombo(cbLibro,
+                                        datosLibro.get(0).get(0) + " - " + datosLibro.get(0).get(1));
+                        CambiarIU.ponerFechaSeleccionada(datePicker, String.valueOf(datosPrestamo.get(0).get(2)));
+                        CambiarIU.ponerSeleccionCombo(cbEstado, String.valueOf(datosPrestamo.get(0).get(3)));
                 } catch (SQLException e) {
                         JOptionPane.showMessageDialog(null, e);
                 }

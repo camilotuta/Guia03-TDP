@@ -1,4 +1,4 @@
-// cSpell:ignore alverata configuracion gestion direccion telefono operacion boton
+// cSpell:ignore alverata configuracion gestion direccion telefono operacion boton distopía
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -447,8 +447,8 @@ public class GestionLibros extends javax.swing.JFrame {
         }
 
         private void limpiarCampos() {
-                cbGenero.setSelectedIndex(0);
-                cbIdioma.setSelectedIndex(0);
+                CambiarIU.ponerIndiceSeleccionCombo(cbGenero, 0);
+                CambiarIU.ponerIndiceSeleccionCombo(cbIdioma, 0);
                 CambiarIU.ponerTextoCampo(tfTitulo, "");
                 CambiarIU.ponerTextoCampo(tfAutor, "");
                 CambiarIU.ponerTextoCampo(tfEditorial, "");

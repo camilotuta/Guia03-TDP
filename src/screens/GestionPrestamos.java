@@ -304,8 +304,8 @@ public class GestionPrestamos extends javax.swing.JFrame {
         }
 
         private void limpiarCampos() {
-                cbCliente.setSelectedIndex(0);
-                cbLibro.setSelectedIndex(0);
+                CambiarIU.ponerIndiceSeleccionCombo(cbCliente, 0);
+                CambiarIU.ponerIndiceSeleccionCombo(cbLibro, 0);
                 datePicker.clearSelectedDate();
         }
 
@@ -322,7 +322,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
                         OperacionCRUD.eliminar(
                                         String.format("delete from prestamos where id = %d", idPrestamoSeleccionado));
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -347,7 +347,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
 
                         spTabla.setViewportView(tTablaPrestamos);
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -366,7 +366,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
                         llenarTablaPrestamos();
                         desactivarBotonCrearNuevoPrestamo();
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
 
         }
@@ -382,7 +382,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
                         }
 
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 
@@ -397,7 +397,7 @@ public class GestionPrestamos extends javax.swing.JFrame {
                         }
 
                 } catch (SQLException e) {
-                       JOptionPane.showMessageDialog(null, e);
+                        JOptionPane.showMessageDialog(null, e);
                 }
         }
 

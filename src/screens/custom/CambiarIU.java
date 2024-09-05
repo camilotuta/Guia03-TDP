@@ -1,7 +1,10 @@
+//cSpell:ignore rawtypes seleccion
 package screens.custom;
 
 import java.awt.Image;
 
+import java.time.LocalDate;
+import javax.swing.JComboBox;
 import javax.swing.Icon;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
@@ -9,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+
+import raven.datetime.component.date.DatePicker;
 
 public class CambiarIU {
     public static void setImageLabel(JLabel labelName, String root) {
@@ -47,4 +52,17 @@ public class CambiarIU {
         contraseñaField.setText(texto);
     }
 
+    @SuppressWarnings("rawtypes")
+    public static void ponerSeleccionCombo(JComboBox comboBox, String valor) {
+        comboBox.setSelectedItem(valor);
+    }
+
+    @SuppressWarnings("rawtypes")
+    public static void ponerIndiceSeleccionCombo(JComboBox comboBox, int indice) {
+        comboBox.setSelectedIndex(indice);
+    }
+
+    public static void ponerFechaSeleccionada(DatePicker datePicker, String fecha) {
+        datePicker.setSelectedDate(LocalDate.parse(fecha));
+    }
 }
